@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Planner</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-2 text-center">Workout Planner</h1>
+
+        <!-- TABS-NAVIGATION -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="exercise-tab" data-bs-toggle="tab" data-bs-target="#exercise" type="button" role="tab" aria-controls="exercise" aria-selected="true">Lista de Ejercicios</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="workout-tab" data-bs-toggle="tab" data-bs-target="#workout" type="button" role="tab" aria-controls="workout" aria-selected="false">Crear Workout</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="session-tab" data-bs-toggle="tab" data-bs-target="#session" type="button" role="tab" aria-controls="session" aria-selected="false">Registro de Sesiones</button>
+          </li>
+        </ul>
+        
+        <!-- CONTENT -->
+        <main class="tab-content mt-4" id="myTabContent">
+
+          <!-- FIRST TAB: List of exercises -->
+          <section class="tab-pane fade show active" id="exercise" role="tabpanel" aria-labelledby="exercise-tab">
+            <h5 class="mb-4">Lista de Ejercicios</h5>
+            <div id="exercise-list-complete" class="exercise-list">
+              <!-- Exercises injected with JS -->
+            </div>
+          </section>
+
+          <!-- SECOND TAB: Create workout -->
+          <section id="workout" class="tab-pane fade" role="tabpanel" aria-labelledby="workout-tab">
+            <header class="d-flex w-100 flex-row justify-content-between pb-3">
+              <h5>Workouts Creados</h5>
+              <button id="open-workout-form" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createWorkoutModal">
+                Crear Workout
+              </button>
+            </header>
+
+            <!-- WORKOUT-LIST -->
+            <ul id="workout-list">
+              <!-- Workout-list injected with JS -->
+            </ul>
+          
+            <!-- MODAL: Workout-form -->
+            <div id="createWorkoutModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <header class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Crear Nuevo Workout</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </header>
+
+                  <div class="modal-body">
+                    <!-- Workout creation form -->
+                    <form id="workout-form" class="workout-form">
+                      <div class="d-flex flex-row gap-3 mb-2 w-100">
+                        <label class="flex-grow-1">
+                          Nombre de la rutina 
+                          <input type="text" id="workout-name" name="workoutName" class="w-100" />
+                        </label>
+
+                        <label class="w-25">
+                          Duración (min)
+                          <input type="number" id="workout-duration" name="workoutDuration" class="w-100" />
+                        </label>
+                      </div>
+                      
+                      <label class="w-100 mb-4">
+                        Escoge uno o más ejercicios:
+                        <select id="exercise-selector" name="exerciseSelector" class="w-100">
+                          <option disabled selected value>--Porfavor, escoge una opción--</option>
+                          <!-- Exercise options injected with JS -->
+                        </select>
+                      </label>
+
+                      <ul id="exercises-selected" class="list-group">
+                        <!-- Exercises selected injected with JS -->
+                      </ul>
+                    </form>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button id="close-workout-form" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button id="save-workout-btn" type="button" class="btn btn-primary">Guardar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- THIRD TAB: Session registration -->
+          <section class="tab-pane fade" id="session" role="tabpanel" aria-labelledby="session-tab">
+
+              <header class="border-bottom border-1 pb-3 mb-3">
+                <label for="workout-selector" class="form-label">Seleccionar Workout</label>
+                <div class="d-flex flex-row gap-4">
+                  <select id="workout-selector" class="form-select flex-grow-1">
+                      <option disabled selected value>-- Seleccione un workout --</option>
+                      <!-- Workout options injected with JS -->
+                  </select>
+                  <button id="open-register-modal" type="button" class="btn btn-primary w-25" data-bs-toggle="modal" data-bs-target="#registerSeriesModal" disabled>
+                      Registrar Sesion
+                  </button>
+                </div>
+              </header>
+
+              <!-- List of registered sessions -->
+              <h5>Sesiones registradas</h5>
+
+              <ul id="register-list" class="list-group mb-3">
+                <!-- Registered sessions injected with JS -->
+              </ul>
+
+              <!-- MODAL: Form session -->
+              <div id="registerSeriesModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <header class="modal-header d-flex justify-content-between align-items-center w-100">
+                        <h5 id="register-name" class="modal-title">Workout name</h5>
+                        <span id="register-date" class="float-end">Fecha y Hora</span>
+                    </header>
+                    <div class="modal-body">
+                      <!-- Form to register the series -->
+                      <form id="serie-form" class="d-flex justify-content-between align-items-end gap-3 mb-3">
+                        <label class="form-label flex-grow-1 mb-0">
+                          Ejercicio
+                          <select id="especific-exercise-selector" class="form-select" name="exerciseSelected">
+                            <option disabled selected value>-- Escoger ejercicio --</option>
+                              <!-- Especific exercise options injected with JS -->
+                          </select>
+                        </label>
+
+                        <label class="form-label w-25 mb-0">
+                          Peso (kg)
+                          <input id="weight" name="weight" type="number" class="form-control" placeholder="Peso">
+                        </label>
+                        
+                        <label class="form-label w-25 mb-0">
+                          Repeticiones
+                          <input id="reps" name="reps" type="number" class="form-control" placeholder="Repeticiones">
+                        </label>
+
+                        <button id="add-serie-btn" type="submit" class="btn btn-primary">
+                          <i class="bi bi-plus-circle"></i>
+                        </button>
+                      </form>
+
+                      <!-- Registered series -->
+                      <ul id="serie-list" class="list-group">
+                        <!-- Serie list injected with JS -->
+                      </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="close-series-btn" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button id="save-register-btn" type="button" class="btn btn-primary">Guardar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+              
+          </section>
+
+          <div id="alert-container"></div>
+
+        </main>
+    </div>
+    
+    <!-- Bootstrap JS CDN -->
+    <script type="module" src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

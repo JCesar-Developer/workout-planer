@@ -1,0 +1,138 @@
+/* Estilos básicos */
+.b1 {
+  border: solid 1px red;
+}
+.b2 {
+  border: solid 1px blue;
+}
+.b3 {
+  border: solid 1px green;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+.exercise-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.exercise-card img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.exercise-card h3 {
+    margin: 0;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+input, select, button {
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Estilos específicos para la lista de ejercicios seleccionados */
+.exercise-list {
+    margin-bottom: 10px;
+}
+
+.exercise-list li {
+    list-style-type: none;
+}
+
+/* Estilos específicos para la lista de workouts */
+#workout-list {
+  border: solid 1px #ccc;
+  border-radius: 8px;
+  list-style: none;
+  padding: 15px;
+}
+
+#workout-list > li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+/* Estilos específicos para el formulario de workouts */
+.workout-form input {
+  border-radius: 5px;
+  border: solid 1px black;
+}
+#exercise-selector {
+  height: 28px;
+  border-radius: 5px;
+}
+#exercises-selected li {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ccc;
+  padding: 5px 10px;
+}
+#exercises-selected li img {
+  width: 45px;
+  height: 45px;
+}
+#exercises-selected li p {
+  margin-bottom: 0;
+}
+#exercises-selected li button {
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 12px;
+}
+
+/* Estilos específicos para la lista de registros */
+#register-list-exercises p {
+  margin: 0;
+}
+
+/* Estilos específicos para las alertas */
+#alert-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 10px;
+  bottom: 20px;
+  right: 20px;
+  width: 350px;
+  height: 35px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
