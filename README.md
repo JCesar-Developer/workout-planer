@@ -2,7 +2,7 @@
 
 Workout Planner is a SAAS under the SPA model, which allows you to create your own routines and track them from the comfort of your web browser. It is easily intuitive and navigable.
 
-![Main image](./assets//screenshots/session-register.png)
+![Main image](./public/session-register.png)
 
 ## Features
 
